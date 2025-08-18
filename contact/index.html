@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Studio Lateralis</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="logo">My Business</h1>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/about/">About</a>
+          <a href="/services/">Services</a>
+          <a href="/contact/" class="active">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="contact">
+        <h1>Contact Us</h1>
+        <p>
+          We’d love to hear from you! Fill out the form below and we’ll get back
+          to you shortly.
+        </p>
+
+        <div class="contact-card">
+          <form action="https://formspree.io/f/your-form-id" method="POST">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Your Name"
+              required
+            />
+
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="_replyto"
+              id="email"
+              placeholder="you@example.com"
+              required
+            />
+
+            <label for="message">Message</label>
+            <textarea
+              name="message"
+              id="message"
+              rows="6"
+              placeholder="Write your message here..."
+              required
+            ></textarea>
+
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script src="../js/main.js"></script>
+  </body>
+</html>
