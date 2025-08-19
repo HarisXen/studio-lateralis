@@ -1,154 +1,189 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ===========================
+   GLOBAL STYLES
+=========================== */
+/* Ensure page takes full height */
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Global Styles */
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* optional, only if you need vertical layout */
 }
 
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-    padding: 1rem 0;
-}
 
-/* Header */
-header {
-    background: #333;
-    color: #fff;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.5rem;
-}
-
-nav a {
-    color: #fff;
-    margin-left: 1rem;
-    text-decoration: none;
-}
-
-nav a.active {
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-/* Hero Section */
-.hero {
-    background: url('../images/hero.jpg') center/cover no-repeat;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero-content {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 2rem;
-    border-radius: 10px;
-    color: #fff;
-    text-align: center;
-}
-
-.btn, .btn-secondary {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.7rem 1.5rem;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.btn {
-    background: #f04e30;
-    color: #fff;
-}
-
-.btn:hover {
-    background: #d03d24;
-}
-
-.btn-secondary {
-    background: #555;
-    color: #fff;
-}
-
-.btn-secondary:hover {
-    background: #333;
-}
-
-/* Services Grid */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-}
-
-.service-card {
-    background: #fff;
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 1rem;
-    background: #333;
-    color: #fff;
-}
-
-/* Contact section */
-.contact {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+/* Main grows to fill space */
+main.hero {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
-.contact h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+/* Footer always sticks to bottom */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: rgba(28, 5, 5, 0.85);
+  color: #D8C7B2;
+  font-size: 0.9rem;
 }
 
-.contact p {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url("../images/background_new.png") no-repeat center center fixed;
+  background-size: cover;
+  color: #E6D9C5;
 }
 
-.contact-card {
-  background-color: #f9f9f9;
+/* Overlay for readability */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 5, 5, 0.75);
+  z-index: -1;
+}
+
+/* ===========================
+   HEADER & NAV
+=========================== */
+header {
+  background: rgba(44, 11, 11, 0.95);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(6px);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-container img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  
+  /* Uniform shadow and glow */
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.5),  /* soft shadow below */
+    0 0 20px rgba(255, 255, 255, 0.15), /* uniform glow around */
+    inset 0 0 10px rgba(255,255,255,0.1), /* inner soft highlight */
+    inset 0 0 8px rgba(0,0,0,0.2);       /* inner depth */
+  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Lift on hover with same uniform shadow */
+.logo-container img:hover {
+  transform: translateY(-4px) scale(1.07);
+  box-shadow: 
+    0 10px 18px rgba(0, 0, 0, 0.6),
+    0 0 25px rgba(255, 255, 255, 0.2),
+    inset 0 0 12px rgba(255,255,255,0.15),
+    inset 0 0 10px rgba(0,0,0,0.25);
+}
+
+
+
+.brand-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #E6D9C5;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 25px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #E6D9C5;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #C4A880;
+}
+
+/* ===========================
+   SECTIONS
+=========================== */
+section, .contact-card {
+  background: rgba(44, 11, 11, 0.85);
+  margin: 2rem auto;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: left;
+  max-width: 1000px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
 
+/* ===========================
+   TYPOGRAPHY
+=========================== */
+h1, h2, h3 {
+  color: #E6D9C5;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: #D8C7B2;
+  line-height: 1.6;
+}
+
+a {
+  color: #C29B88;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+button, .btn {
+  background: #800020;
+  color: #E6D9C5;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover, .btn:hover {
+  background: #A63232;
+}
+
+/* ===========================
+   CONTACT FORM
+=========================== */
 .contact-card form label {
   display: block;
   margin-bottom: 0.3rem;
   font-weight: 500;
+  color: #E6D9C5;
 }
 
 .contact-card form input,
@@ -156,37 +191,63 @@ footer {
   width: 100%;
   padding: 0.75rem;
   margin-bottom: 1.2rem;
-  border: 1px solid #ccc;
+  border: 1px solid #C4A880;
   border-radius: 8px;
+  background-color: #2C0B0B;
+  color: #E6D9C5;
   font-size: 1rem;
-  transition: border-color 0.2s;
+}
+
+.contact-card form input::placeholder,
+.contact-card form textarea::placeholder {
+  color: #cbbba7;
 }
 
 .contact-card form input:focus,
 .contact-card form textarea:focus {
-  border-color: #007bff;
+  border-color: #fff;
   outline: none;
 }
 
 .contact-card form button {
-  display: inline-block;
-  padding: 0.75rem 2rem;
-  font-size: 1.1rem;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+  background-color: #E6D9C5;
+  color: #2C0B0B;
+  font-weight: bold;
 }
 
 .contact-card form button:hover {
-  background-color: #0056b3;
+  background-color: #fff;
+  color: #2C0B0B;
 }
 
-/* Responsive */
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+  margin-top: 50px;
+  text-align: center;
+  padding: 15px;
+  background: rgba(28, 5, 5, 0.9);
+  color: #D8C7B2;
+  font-size: 0.9rem;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
 @media (max-width: 600px) {
-  .contact-card {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  section, .contact-card {
     padding: 1.5rem;
   }
 }
