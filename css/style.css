@@ -98,6 +98,7 @@ header {
 
 
 
+
 .brand-name {
   font-size: 1.2rem;
   font-weight: bold;
@@ -110,6 +111,11 @@ nav ul {
   padding: 0;
   display: flex;
   gap: 25px;
+}
+
+nav ul li a.active {
+  color: #fff;
+  border-bottom: 2px solid #C29B88; /* subtle underline */
 }
 
 nav ul li a {
